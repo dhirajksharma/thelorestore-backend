@@ -9,6 +9,10 @@ const dotenv=require("dotenv");
 const Product=require("../models/productModel");
 
 dotenv.config();
+exports.getHealth=catchAsyncError(async(req,res,next)=>{
+    res.status(200);
+    res.send();
+})
 
 //Register a user
 exports.registerUser=catchAsyncError(async(req,res,next)=>{

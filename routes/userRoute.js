@@ -1,5 +1,5 @@
 const express=require("express");
-const { registerUser, loginUser, logout, forgotPassword, resetPassword, getUserDetails, updatePassword, updateProfile, addToCart, getSellerProducts } = require("../controller/userController");
+const { registerUser, loginUser, logout, forgotPassword, resetPassword, getUserDetails, updatePassword, updateProfile, addToCart, getSellerProducts, getHealth } = require("../controller/userController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const router=express.Router();
 
@@ -26,5 +26,8 @@ router.route('/me/cart')
 
 router.route('/me/books')
     .get(isAuthenticatedUser, authorizeRoles('seller'), getSellerProducts);
+
+router.route('/health')
+    .get(getHealth);
 
 module.exports=router;
