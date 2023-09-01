@@ -211,6 +211,8 @@ exports.getSellerProducts=catchAsyncError(async(req,res,next)=>{
     }
     for (let index = 0; index < seller.products.length; index++) {
         let prd=await Product.findOne({isbn:seller.products[index]});
+        if(prd==null)
+            continue;
         let currentSeller=sellerfinder(prd);
         prd.sellers=[]
         prd.sellers.push(currentSeller);

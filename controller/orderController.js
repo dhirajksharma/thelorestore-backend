@@ -44,12 +44,6 @@ exports.getSingleOrder=catchAsyncError(async(req,res,next)=>{
         return next(new Errorhander("You are not authorized to access this page",404));
     }
 
-    if(req.user.role==='seller'){
-        let ord=order;
-        ord.orderItems=order.orderItems.filter(item=>
-            item.sellerID.toString()===req.user.id.toString())
-    }
-    
     res.status(200).json({
         success:true,
         order,
