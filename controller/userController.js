@@ -189,7 +189,16 @@ exports.addToCart=catchAsyncError(async(req,res,next)=>{
         sellerName:req.body.sellerName,
         quantity:req.body.quantity,
     }
-    user.cart.push(item);
+    let flag=0
+    for(let indx=0;indx<user.cart.length;indx++){
+        if(user.cart[indx].productID==item.productID){
+            user.cart[indx].quantity+=item.quantity;
+            user.cart[indx].price=item.price;
+            flag=1;
+        }
+    }
+    if(!flag)
+        user.cart.push(item);
     await user.save();
 
     res.status(200).json({

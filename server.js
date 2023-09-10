@@ -43,7 +43,7 @@ app.post("/create-checkout-session",async (req,res)=>{
             success_url:process.env.STRIPE_SUCCESS_URL,
             cancel_url:process.env.STRIPE_FAIL_URL
         })
-        res.json({url:session.url})
+        res.json({url:session.url, id:session.id})
     }catch(e){
         res.status(500).json({error:e.message})
     }
