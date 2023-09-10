@@ -51,7 +51,6 @@ exports.createProduct=catchAsyncError(async(req,res,next)=>{
 
 // Update Product-- seller
 exports.updateProduct=catchAsyncError(async(req,res,next)=>{
-    console.log(req.body);
     let product=await Product.findOne({isbn:Number(req.body.isbn)});
 
     if(!product){
