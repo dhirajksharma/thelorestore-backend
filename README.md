@@ -53,3 +53,5 @@ Below is the list of environment variables required for the frontend:
 - STRIPE_FAIL_URL
 
 > **Note:** Create the env file in the root directory with the name ".env". This is because of how the dotenv modules config method works. The default value for path is `path.resolve(process.cwd(), '.env')` If you are keeping your env file elsewhere or with a certain name, then you will need to pass the path to the method accordingly. However, I would recommend the former approach since hosting platforms (like Render and Vercel which I have used) will add the ".env" file to your root directory. So, doing a similar thing in your development will eliminate unnecessary conditionals in the code.
+
+'here is my read.md'
